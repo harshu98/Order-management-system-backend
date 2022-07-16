@@ -4,9 +4,12 @@ const cors = require('cors');
 const order = require('./orders');
 var bodyParser = require('body-parser');
 var app = express();
+port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'http://localhost:4200'
+    origin: ['http://localhost:4200',
+        "https://ordermanagementsystembackend.herokuapp.com"
+    ]
 }));
 
 app.get('/login', (req, res) => {
@@ -38,6 +41,6 @@ app.post('/deleteOrder', (req, res) => {
         res.send(response);
     });
 })
-app.listen(3000, function() {
-    console.log("App listening on port 3000");
+app.listen(port, function() {
+    console.log("App listening on port " + port);
 });
