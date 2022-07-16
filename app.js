@@ -8,7 +8,7 @@ port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors({
     origin: ['http://localhost:4200',
-        "https://ordermanagementsystembackend.herokuapp.com"
+        "https://navtech-oms.netlify.app/"
     ]
 }));
 
